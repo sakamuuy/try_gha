@@ -1,0 +1,9 @@
+name: label action
+on:
+  label: 
+    types: [created]
+jobs:
+  sample-label-action:
+    runs-on: ubuntu-latest
+    steps: 
+      - run: echo "labeled tritter"
