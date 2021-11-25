@@ -1,0 +1,7 @@
+name: on pull request
+on: pull_request
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "on pull request"
