@@ -1,10 +1,11 @@
 name: label action
 on:
-  label: 
-    types: [created]
+  pull_request:
+    types:
+      - labeled
 jobs:
   sample-label-action:
     runs-on: ubuntu-latest
     steps: 
       - run: echo "labeled tritter"
-      - run: echo "test 2"
+      - run: echo "test"
