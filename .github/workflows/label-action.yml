@@ -1,10 +1,12 @@
 name: label action
 on:
-  label: 
-    types: [created]
+  pull_request:
+    types:
+      - labeled
 jobs:
   sample-label-action:
     runs-on: ubuntu-latest
     steps: 
-      - run: echo "haad_ref: ${{ github.head_ref }}"
-      - run: echo "ref: ${{ github.ref }}" 
+      - run: echo "ref ${{ github.ref }}"
+      - run: echo "haad_ref ${{ github.head_ref }}"
+      - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
