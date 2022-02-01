@@ -11,7 +11,6 @@ jobs:
           count=`cat ./hoge/hoge.json | jq '.newItems | length'`
           echo $count
           echo '::set-output name=NEW_ITEM_COUNT::$count'
-        working-directory: "hoge"
 
       - run: echo ${{ steps.count_new_snapshots.outputs.NEW_ITEM_COUNT }}
 
