@@ -5,3 +5,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "on pull request"
+
+      - id: count_new_snapshots
+        run: |
+          count=`cat ./hoge/hoge.json | jq '.newItems | length'`
+          echo $count
+          echo '::set-output name=NEW_ITEM_COUNT::$count'
+
+      - run: echo ${{ steps.count_new_snapshots.outputs.NEW_ITEM_COUNT }}
+
+      - if: ${{ steps.count_new_snapshots.outputs.NEW_ITEM_COUNT > 0 }}
+        run: exit 1
